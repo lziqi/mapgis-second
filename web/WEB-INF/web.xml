@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+<!--    <servlet>-->
+<!--        <servlet-name>CGI</servlet-name>-->
+<!--        <servlet-class>org.apache.catalina.servlets.CGIServlet</servlet-class>-->
+<!--&lt;!&ndash;        <init-param>&ndash;&gt;-->
+<!--&lt;!&ndash;            <param-name>clientinputTimeout</param-name>&ndash;&gt;-->
+<!--&lt;!&ndash;            <param-value>100</param-value>&ndash;&gt;-->
+<!--&lt;!&ndash;        </init-param>&ndash;&gt;-->
+<!--        <init-param>-->
+<!--            <param-name>debug</param-name>-->
+<!--            <param-value>0</param-value>-->
+<!--        </init-param>-->
+<!--        <init-param>-->
+<!--            <param-name>passShellEnvironment</param-name>-->
+<!--            <param-value>true</param-value>-->
+<!--        </init-param>-->
+<!--        <init-param>-->
+<!--            <param-name>pythonCode</param-name>-->
+<!--            <param-value>WEB-INF/CGI</param-value>-->
+<!--        </init-param>-->
+<!--        <init-param>-->
+<!--            <param-name>executable</param-name>-->
+<!--            <param-value>D:/Python/Python37/python.exe</param-value>-->
+<!--        </init-param>-->
+<!--        <load-on-startup>5</load-on-startup>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>CGI</servlet-name>-->
+<!--        <url-pattern>pythonCode/*</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+
+    <!--helloworld-->
+    <servlet>
+        <servlet-name>helloworld</servlet-name>
+        <servlet-class>helloworld</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>helloworld</servlet-name>
+        <url-pattern>/helloworld</url-pattern>
+    </servlet-mapping>
+    
+    
+    <!--getPiInfo-->
+    <servlet>
+        <servlet-name>getPiInfo</servlet-name>
+        <servlet-class>getPiInfo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>getPiInfo</servlet-name>
+        <url-pattern>/getPiInfo</url-pattern>
+    </servlet-mapping>
+    
+    
+    <!--getTrashInfo-->
+    <servlet>
+        <servlet-name>getTrashInfo</servlet-name>
+        <servlet-class>getTrashInfo</servlet-class>
+    </servlet>    
+    <servlet-mapping>
+        <servlet-name>getTrashInfo</servlet-name>
+        <url-pattern>/getTrashInfo</url-pattern>
+    </servlet-mapping>
+    
+    
+    <!--getTrashClass-->
+    <servlet>
+        <servlet-name>getTrashClass</servlet-name>
+        <servlet-class>getTrashClass</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>getTrashClass</servlet-name>
+        <url-pattern>/getTrashClass</url-pattern>
+    </servlet-mapping>
+    
+    <!--vertifyLogin-->
+    <servlet>
+        <servlet-name>vertifyLogin</servlet-name>
+        <servlet-class>vertifyLogin</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>vertifyLogin</servlet-name>
+        <url-pattern>/vertifyLogin</url-pattern>
+    </servlet-mapping>
+</web-app>

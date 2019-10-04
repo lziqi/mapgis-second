@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--    <title>Title</title>-->
+
+    <style>
+        body,html{
+            height:100%;
+            width:100%;
+        }
+        .markerBlank{
+            height:5%;
+            width:100%;
+            float:top;
+        }
+
+        .marker{
+            height:25%;
+            width:100%;
+            float:top;
+        }
+
+        .markerTitle{
+            text-align: center;
+            text-decoration: none;
+            float:left;
+            width:0%;
+            height:100%;
+        }
+        .markerImg {
+            /*float:left;*/
+            width:70%;
+            height:100%;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .markerGraph{
+            height: 70%;
+            width:100%;
+            float:top;
+        }
+
+        .row{
+            height:25%;
+            width:100%;
+            float:top;
+        }
+        .trash{
+            height:80%;
+            width:33%;
+            float:left
+        }
+
+        .trashTitle{
+            height:20%;
+            float:top;
+            font-size:14px;
+            text-align: center;
+        }
+
+        .trashText{
+            height:20%;
+            float:top;
+            font-size: 10px;
+            text-align: center;
+        }
+
+        .trashGraph{
+            height: 80%;
+            float:top;
+        }
+
+    </style>
+</head>
+
+<script>
+    function sideLoad()
+    {
+        function getData(id)
+        {
+            $.ajax({
+                url: "/getTrashInfo",
+                data: {id: id},
+                type: "GET",
+                // dataType: "json",
+                success: function(data) {
+                    let elementGraph = document.getElementById("markerGraph1");
+                    let handledData = data.split("&");
+                    for (var i = 0; i < 4; i++) {
+                        if (handledData[i] == "-1")
+                            continue;
+                        var splitData = handledData[i].split("|");
+                        var trashNum = splitData.length;
+                        for (var j = 0; j < trashNum; j++) {
+                            var currentTrash = splitData[j].split(" ")[0];
+                            var allTrash = splitData[j].split(" ")[2];
+
+                            //寻找到对应的地点添加
+                            var tempRow = elementGraph.children[i];
+                            var tempTrash = tempRow.children[j + 1];
+                            var tempText = tempTrash.children[0];
+                            tempText.innerText = (j + 1).toString() + "号垃圾桶";
+                            var tempGraph = tempTrash.children[1];
+
+
+                            var dom = tempGraph;
+                            var myChart = echarts.init(dom);
+                            var option = null;
+                            var e = Math.round(currentTrash / allTrash * 100);
+
+                            option = {
+                                title: {
+                                    show: true,
+                                    text: e + '%',
+                                    x: 'center',
+                                    y: 'center',
+                                    textStyle: {
+                                        fontSize: '7',
+                                        color: 'black',
+                                        fontWeight: 'normal'
+                                    }
+                                },
+                                tooltip: {
+                                    trigger: 'item',
+                                    formatter: "{d}%",
+                                    show: false
+                                },
+                                legend: {
+                                    orient: 'vertical',
+                                    x: 'left',
+                                    show: false
+                                },
+                                series: {
+                                    name: '',
+                                    type: 'pie',
+                                    radius: ['65%', '85%'],
+                                    avoidLabelOverlap: true,
+                                    hoverAnimation: false,
+                                    label: {
+                                        normal: {
+                                            show: false,
+                                            position: 'center'
+                                        },
+                                        emphasis: {
+                                            show: false
+                                        }
+                                    },
+                                    labelLine: {
+                                        normal: {
+                                            show: false
+                                        }
+                                    },
+                                    data: [{
+                                        value: e,
+                                        name: ''
+                                    },
+                                        {
+                                            value: 100 - e,
+                                            name: ''
+                                        }
+                                    ]
+                                }
+
+                            };
+
+                            myChart.setOption(option);
+                        }
+                    }
+
+                }
+            });
+        }
+        getData(2);
+
+    }
+</script>
+
+<body onload="sideLoad()">
+<div class="marker">
+    <img class="markerImg" src="../source/trash2.jpg">
+</div>
+<div class="markerGraph" id = "markerGraph1">
+    <!--row 1-->
+    <div class="row">
+        <div class="trashTitle">可回收垃圾</div>
+        <div class="trash">
+            <div class="trashText">1号垃圾桶</div>
+            <div class = "trashGraph"></div>
+        </div>
+        <div class="trash">
+            <div class="trashText">2号垃圾桶</div>
+            <div class = "trashGraph"></div>
+        </div>
+        <div class="trash">
+            <div class="trashText"></div>
+            <div class = "trashGraph"></div>
+        </div>
+    </div>
+
+
+    <!--row 2-->
+    <div class="row">
+        <div class="trashTitle">厨余垃圾</div>
+        <div class="trash">
+            <div class="trashText"></div>
+            <div class = "trashGraph"></div>
+        </div>
+        <div class="trash">
+            <div class="trashText"></div>
+            <div class = "trashGraph"></div>
+        </div>
+        <div class="trash">
+            <div class="trashText"></div>
+            <div class = "trashGraph"></div>
+        </div>
+    </div>
+
+
+
+    <!--row 3-->
+    <div class="row">
+        <div class="trashTitle">其他垃圾</div>
+        <div class="trash">
+            <div class="trashText"></div>
+            <div class = "trashGraph"></div>
+        </div>
+        <div class="trash">
+            <div class="trashText"></div>
+            <div class = "trashGraph"></div>
+        </div>
+        <div class="trash">
+            <div class="trashText"></div>
+            <div class = "trashGraph"></div>
+        </div>
+    </div>
+
+
+    <!--row 4-->
+    <div class="row">
+        <div class="trashTitle">有害垃圾</div>
+        <div class="trash">
+            <div class="trashText">1号垃圾桶</div>
+            <div class = "trashGraph"></div>
+        </div>
+        <div class="trash">
+            <div class="trashText"></div>
+            <div class = "trashGraph"></div>
+        </div>
+        <div class="trash">
+            <div class="trashText"></div>
+            <div class = "trashGraph"></div>
+        </div>
+    </div>
+</div>
+<!--    <script src="../addMap.js"></script>-->
+<!--    <script src="ui.css"></script>-->
+<!--    引入echarts-->
+<script src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+<script src="../libs/jquery-1.11.2.min.js"></script>
+</body>
+</html>

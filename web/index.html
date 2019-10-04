@@ -1,0 +1,74 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <script>
+        var data;
+        function showtime()
+        {
+            var currentTime = new Date();
+            document.getElementById("timeId").innerHTML=currentTime;
+            setTimeout("showtime()",1000);
+        }
+        function refreshData()
+        {
+            var number_1_distance = document.getElementById("number_1_distance");
+            var number_2_distance = document.getElementById("number_2_distance");
+
+            var number_1_oldDistance = document.getElementById("number_1_oldDistance");
+            var number_2_oldDistance = document.getElementById("number_2_oldDistance");
+            getData();
+            if(!data=="")
+            {
+                var trash_1 = data.split("&")[0];
+                var trash_2 = data.split("&")[1];
+                number_1_distance.innerHTML = trash_1.split(" ")[1];
+                number_2_distance.innerHTML = trash_2.split(" ")[1];
+
+                number_1_oldDistance.innerHTML = trash_1.split(" ")[5];
+                number_2_oldDistance.innerHTML = trash_2.split(" ")[5];
+            }
+            setTimeout("refreshData()",800);
+        }
+
+        function getData()
+        {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange=function()
+            {
+                if(xmlhttp.readyState==4 && xmlhttp.status == 200)
+                {
+                    data = xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET","/getTrashInfo",true);
+            xmlhttp.send();
+        }
+    </script>
+</head>
+
+<body onload="showtime();refreshData()">
+当前时间<p id="timeId"></p>
+<br>
+
+当前垃圾桶存量
+<br>
+<div id="container"></div>
+
+<table id = "trash_table" border="1">
+    <tbody>
+        <tr>
+            <th>1</th>
+            <td id="number_1_distance">--</td>
+            <td id="number_1_oldDistance">--</td>
+        </tr>
+        <tr>
+            <th>2</th>
+            <td id="number_2_distance">--</td>
+            <td id="number_2_oldDistance">--</td>
+        </tr>
+    </tbody>
+</table>
+
+<input type="button" value="刷新" onclick="refreshData()">
+</body>
+</html>

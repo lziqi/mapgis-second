@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+<!--		<meta charset="utf-8">-->
+<!--		<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<!--		<meta name="renderer" content="webkit">-->
+<!--		<meta name="format-detection" content="telephone=no,email=no,address=no">-->
+<!--		<meta name="apple-mobile-web-app-capable" content="yes">-->
+<!--		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">-->
+<!--		<title>MiniDialog</title>-->
+	</head>
+	<body>
+	    
+		<section id="container">
+<!--			<header>MiniDialog 对话框</header>-->
+<!--			<div class="box">-->
+<!--				<p>信息展示</p>-->
+<!--				<div class="button-box" id="button-box-1">-->
+<!--					<button class="shortcuts">Info 信息</button>-->
+<!--					<button class="shortcuts">Success 成功</button>-->
+<!--					<button class="shortcuts">Warn 警告</button>-->
+<!--					<button class="shortcuts">Error 错误</button>-->
+<!--				</div>-->
+
+
+
+<!--				</div>-->
+<!--			</div>-->
+<!--			<div class="box">-->
+<!--				<p>信息展示 - 手动控制</p>-->
+<!--				<div class="button-box">-->
+<!--					<button id="shortcuts-ok-callback">回调事件</button>-->
+<!--					<button id="shortcuts-ok-notclose">阻止正常关闭</button>-->
+<!--					<button id="shortcuts-ok-notclose-with-word">阻止正常关闭并改变按钮状态</button>-->
+<!--				</div>-->
+<!--<pre>-->
+<!--<span fn>Dialog.info</span>( <span value>"info 对话框"</span>, <span value>"内容区域"</span> ).<span fn>ok</span>(function () {-->
+<!--    alert( <span value>"回调事件"</span> );-->
+<!--});-->
+<!--<span fn>Dialog.info</span>( <span value>"info 对话框"</span>, <span value>"内容区域"</span> ).<span fn>okNotClose</span>().<span fn>ok</span>(function () {-->
+<!--    window.setTimeout(function () {-->
+<!--        <span fn>Dialog.close()</span>;-->
+<!--    }, 3000)-->
+<!--});-->
+<!--<span fn>Dialog.info</span>( <span value>"info 对话框"</span>, <span value>"内容区域"</span> ).<span fn>okNotClose</span>().<span fn>ok</span>(function ( <span fn>okBtn</span> ) {-->
+
+<!--    <span note>// 改变按钮文字</span>-->
+<!--    <span fn>okBtn</span>.querySelector( <span value>"span"</span> ).textContent = <span value>"3 秒后关闭..."</span>;-->
+
+<!--    <span note>// "mini-dialog-ok-disabled" 是内置的 class 可以使按钮不可再点击</span>-->
+<!--    <span fn>okBtn</span>.classList.add( <span value>"mini-dialog-ok-disabled"</span> );-->
+
+<!--    <span note>// 3 秒后关闭对话框</span>-->
+<!--    window.setTimeout(function () {-->
+<!--        <span fn>Dialog.close()</span>;-->
+<!--    }, 3000)-->
+<!--});-->
+<!--<span fn>Dialog</span>( <span value>"内容"</span> );-->
+<!--<span fn>Dialog</span>( <span value>"标题"</span>, <span value>"内容"</span> );-->
+<!--<span fn>Dialog</span>( <span value>"标题"</span>, <span value>"内容"</span>, <span value>800</span> );-->
+
+
+<!--<span fn>Dialog</span>({-->
+<!--    <span attr>title</span>: <span value>"标题"</span>,-->
+<!--    <span attr>content</span>: <span value>"内容"</span>-->
+<!--});-->
+<!--<span fn>Dialog</span>({-->
+<!--    <span attr>title</span>: <span value>"标题"</span>,-->
+<!--    <span attr>content</span>: <span value>"内容"</span>,-->
+<!--    <span attr>width</span>: <span value>800</span>-->
+<!--});-->
+<!--<span fn>Dialog</span>({-->
+<!--    <span attr>title</span>: <span value>"标题"</span>,-->
+<!--    <span attr>content</span>: <span value>"内容"</span>,-->
+<!--    <span attr>contentBgColor</span>: <span value>"#f5f5f5"</span>-->
+<!--});-->
+<!--</pre>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			<div class="box">-->
+<!--				<p>可拖动对话框</p>-->
+<!--				<div class="button-box" id="button-box-4">-->
+<!--					<button>打开一个对话框</button>-->
+<!--					<p><span>关闭所有对话框</span></p>-->
+<!--				</div>-->
+<!--<pre>-->
+<!--<span fn>Dialog</span>({-->
+<!--    <span attr>title</span>: <span value>"标题"</span>,-->
+<!--    <span attr>content</span>: <span value>"内容"</span>,-->
+<!--    <span attr>draggable</span>: <span value>true</span>-->
+<!--});-->
+<!--</pre>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			<div class="box">-->
+<!--				<p>全屏对话框</p>-->
+<!--				<div class="button-box" id="button-box-5">-->
+<!--					<button>全屏对话框</button>-->
+<!--				</div>-->
+<!--<pre>-->
+<!--<span fn>Dialog</span>({-->
+<!--    <span attr>title</span>: <span value>"标题"</span>,-->
+<!--    <span attr>content</span>: <span value>"内容"</span>,-->
+<!--    <span attr>fullscreen</span>: <span value>true</span>-->
+<!--});-->
+<!--</pre>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			<div class="box">-->
+<!--				<p>自动关闭</p>-->
+<!--				<div class="button-box" id="button-box-6">-->
+<!--					<button>可自动关闭</button>-->
+<!--				</div>-->
+<!--<pre>-->
+<!--<span fn>Dialog</span>({-->
+<!--    <span attr>title</span>: <span value>"标题"</span>,-->
+<!--    <span attr>content</span>: <span value>"内容"</span>,-->
+<!--    <span attr>autoClose</span>: <span value>5000</span>-->
+<!--});-->
+<!--</pre>-->
+<!--				</div>-->
+<!--			</div>-->
+			<div class="box">
+<!--				<p>嵌入 Iframe</p>-->
+				<div class="button-box" id="button-box-7">
+					<button>打开对话框</button>
+				</div>
+
+
+
+		</section>
+
+		<script src="MiniDialog-es5.min.js"></script>
+		<script src="demo.js"></script>
+
+	</body>
+</html>

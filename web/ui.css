@@ -1,0 +1,164 @@
+body, html {
+    border: none;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+
+#LEFT {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height:95%;
+    width:8%;
+    border: 1px;
+    border-color: #333;
+    background-color: #339999;
+    color: #fff;
+    box-shadow: 0px 0px 2px #666;
+    cursor: pointer;
+    padding: 0 4px 0 4px;
+}
+
+#menu {
+    width: 100%;
+    height: 20px;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-family: "微软雅黑";
+    left: 10px;
+    text-align: center;
+}
+
+#mapCon {
+    width: 100%;
+    height: 95%;
+    float: left;
+    /*position: absolute;*/
+}
+
+.ol-popup {
+    position: absolute;
+    background-color: white;
+    -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+    filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #cccccc;
+    bottom: 45px;
+    left: -50px;
+}
+
+.ol-popup:after, .ol-popup:before {
+    top: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.ol-popup:after {
+    border-top-color: white;
+    border-width: 10px;
+    left: 48px;
+    margin-left: -10px;
+}
+
+.ol-popup:before {
+    border-top-color: #cccccc;
+    border-width: 11px;
+    left: 48px;
+    margin-left: -11px;
+}
+
+.ol-popup-closer {
+    text-decoration: none;
+    position: absolute;
+    top: 2px;
+    right: 8px;
+}
+
+
+.ol-popup-closer:after {
+    content: "✖";
+}
+
+#popup-content {
+    font-size: 14px;
+    font-family: "微软雅黑";
+}
+
+#popup-content .markerInfo {
+    font-weight: bold;
+}
+
+.markerBlank{
+    height:10px;
+    width:150px;
+    float:top;
+}
+
+.marker{
+    height:80px;
+    width:150px;
+    float:top;
+}
+
+.markerTitle{
+    text-align: center;
+    text-decoration: none;
+    float:left;
+    width:30%;
+    height:100%;
+}
+
+.markerText{
+    font-size:6px;
+    text-align:center;
+    height:50%;
+}
+
+.markerImg {
+    float:left;
+    width:70%;
+    height:100%;
+}
+
+.markerGraph{
+    height: 220px;
+    width:150px;
+    float:top;
+}
+
+.row{
+    height:25%;
+    width:100%;
+    float:top;
+}
+.trash{
+    height:80%;
+    width:33%;
+    float:left
+}
+.trashTitle{
+    font-size:10px;
+    text-align: center;
+    height:20%;
+    float:top;
+    font-weight: bold;
+}
+
+.trashText{
+    height:20%;
+    float:top;
+    font-size:8px;
+    text-align: center;
+}
+.trashGraph{
+    height: 60%;
+    float:top;
+}
